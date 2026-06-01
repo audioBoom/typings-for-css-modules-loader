@@ -1,5 +1,5 @@
 {
-  "name": "@teamsupercell/typings-for-css-modules-loader",
+  "name": "@audioboom/typings-for-css-modules-loader",
   "version": "2.5.2",
   "description": "Webpack loader that generates TypeScript typings for CSS modules from css-loader on the fly",
   "main": "src/index.js",
@@ -8,7 +8,7 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "release": "release-it"
   },
-  "author": "Tim Sebastian <tim.sebastian@gmail.com>",
+  "author": "Jonathan del Strother <jdelStrother@gmail.com>",
   "license": "MIT",
   "keywords": [
     "Typescript",
@@ -50,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TeamSupercell/typings-for-css-modules-loader.git"
+    "url": "git+https://github.com/audioboom/typings-for-css-modules-loader.git"
   },
   "bugs": {
-    "url": "https://github.com/TeamSupercell/typings-for-css-modules-loader/issues"
+    "url": "https://github.com/audioboom/typings-for-css-modules-loader/issues"
   },
-  "homepage": "https://github.com/TeamSupercell/typings-for-css-modules-loader#readme",
+  "homepage": "https://github.com/audioboom/typings-for-css-modules-loader#readme",
   "release-it": {
     "github": {
       "release": true
