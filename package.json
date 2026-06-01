@@ -27,13 +27,16 @@
     "schema-utils": "^2.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
     "auto-changelog": "^2.2.1",
     "css-loader": "*",
-    "css-loader6": "npm:css-loader@^6.11.0",
     "css-loader3": "npm:css-loader@^3.1.0",
-    "eslint": "8.32.0",
-    "eslint-config-prettier": "^8.6.0",
+    "css-loader6": "npm:css-loader@^6.11.0",
+    "eslint": "^10.4.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jest": "^29.15.2",
+    "globals": "^17.6.0",
     "jest": "^30.4.2",
     "memfs": "^3.4.13",
     "prettier": "*",
@@ -52,14 +55,6 @@
     "url": "https://github.com/TeamSupercell/typings-for-css-modules-loader/issues"
   },
   "homepage": "https://github.com/TeamSupercell/typings-for-css-modules-loader#readme",
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 2017
-    },
-    "extends": [
-      "prettier"
-    ]
-  },
   "release-it": {
     "github": {
       "release": true
