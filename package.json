@@ -49,13 +49,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/audioboom/typings-for-css-modules-loader.git"
+    "url": "git+https://github.com/audioBoom/typings-for-css-modules-loader.git"
   },
   "bugs": {
-    "url": "https://github.com/audioboom/typings-for-css-modules-loader/issues"
+    "url": "https://github.com/audioBoom/typings-for-css-modules-loader/issues"
   },
-  "homepage": "https://github.com/audioboom/typings-for-css-modules-loader#readme",
+  "homepage": "https://github.com/audioBoom/typings-for-css-modules-loader#readme",
   "release-it": {
+    "npm": {
+      "skipChecks": true
+    },
     "github": {
       "release": true
     },
@@ -65,5 +68,9 @@
     "hooks": {
       "after:bump": "npx auto-changelog --commit-limit false https://raw.githubusercontent.com/release-it/release-it/master/templates/keepachangelog.hbs"
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
