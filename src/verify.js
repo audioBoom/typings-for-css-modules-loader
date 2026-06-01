@@ -16,7 +16,7 @@ module.exports = async (filename, content) => {
   if (!fileExists) {
     throw new Error(
       `Verification failed: Generated typings for css-module file '${filename}' is not found. ` +
-        "It typically happens when the generated typings were not committed."
+        "It typically happens when the generated typings were not committed.",
     );
   }
 
@@ -26,7 +26,7 @@ module.exports = async (filename, content) => {
   if (existingFileContent.replace(/\s+/g, "") !== content.replace(/\s+/g, "")) {
     throw new Error(
       `Verification failed: Generated typings for css-modules file '${filename}' is out of date. ` +
-        "It typically happens when the up-to-date generated typings are not committed."
+        "It typically happens when the up-to-date generated typings are not committed.",
     );
   }
 };

@@ -37,10 +37,9 @@ const schema = {
       type: "boolean",
     },
     prettierConfigFile: {
-      description:
-        "Path to prettier config file",
+      description: "Path to prettier config file",
       type: "string",
-    }
+    },
   },
   additionalProperties: false,
 };
@@ -82,7 +81,7 @@ module.exports = function (content, ...args) {
   const cssModuleDefinition = generateGenericExportInterface(
     cssModuleKeys,
     filenameToPascalCase(filename),
-    options.disableLocalsExport
+    options.disableLocalsExport,
   );
 
   applyFormattingAndOptions(cssModuleDefinition, options)
@@ -118,7 +117,7 @@ async function applyFormattingAndOptions(cssModuleDefinition, options) {
     // at very least let's ensure we're using OS eol if it's not provided
     cssModuleDefinition = cssModuleDefinition.replace(
       /\r?\n/g,
-      options.eol || require("os").EOL
+      options.eol || require("os").EOL,
     );
   }
 
@@ -133,14 +132,16 @@ async function applyFormattingAndOptions(cssModuleDefinition, options) {
 async function applyPrettier(input, options) {
   const prettier = require("prettier");
 
-  const configPath = options.prettierConfigFile ? options.prettierConfigFile : "./";
-  const config = await prettier.resolveConfig(configPath,  {
+  const configPath = options.prettierConfigFile
+    ? options.prettierConfigFile
+    : "./";
+  const config = await prettier.resolveConfig(configPath, {
     editorconfig: true,
   });
 
   return prettier.format(
     input,
-    Object.assign({}, config, { parser: "typescript" })
+    Object.assign({}, config, { parser: "typescript" }),
   );
 }
 

@@ -86,7 +86,7 @@ const filenameToTypingsFilename = (filename) => {
 const generateGenericExportInterface = (
   cssModuleKeys,
   pascalCaseFileName,
-  disableLocalsExport
+  disableLocalsExport,
 ) => {
   const interfaceName = `I${pascalCaseFileName}`;
   const moduleName = `${pascalCaseFileName}Module`;
@@ -101,7 +101,7 @@ const generateGenericExportInterface = (
 
   const interfaceProperties = cssModuleToTypescriptInterfaceProperties(
     cssModuleKeys,
-    "    "
+    "    ",
   );
   return `declare namespace ${namespaceName} {
   export interface I${pascalCaseFileName} {

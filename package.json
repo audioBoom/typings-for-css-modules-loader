@@ -4,7 +4,8 @@
   "description": "Webpack loader that generates TypeScript typings for CSS modules from css-loader on the fly",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest",
+    "//": "experimental-vm-modules is needed for prettier v3 in jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "release": "release-it"
   },
   "author": "Tim Sebastian <tim.sebastian@gmail.com>",

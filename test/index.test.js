@@ -449,7 +449,7 @@ function createTestRunner(cssLoaderModule = "css-loader") {
                   {
                     modules: true,
                   },
-                  cssLoaderOptions
+                  cssLoaderOptions,
                 ),
               },
             ],
