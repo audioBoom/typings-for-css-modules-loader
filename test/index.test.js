@@ -60,6 +60,7 @@ describe("css-loader@latest", () => {
 
   it("localsConvention asIs", async () => {
     await runTest({
+      options: { esmExports: false },
       cssLoaderOptions: {
         modules: {
           exportLocalsConvention: "asIs",
@@ -74,10 +75,23 @@ describe("css-loader@latest", () => {
 
   it("localsConvention camelCase", async () => {
     await runTest({
+      options: { esmExports: false },
       cssLoaderOptions: {
         modules: {
           exportLocalsConvention: "camelCase",
         },
+      },
+    });
+
+    const persistMock = jest.requireMock("../src/persist");
+    expect(persistMock).toHaveBeenCalledTimes(1);
+    expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
+  });
+
+  it("with legacy cjs format", async () => {
+    await runTest({
+      options: {
+        esmExports: false,
       },
     });
 
@@ -125,6 +139,7 @@ describe("css-loader@latest", () => {
   it("with locals export disabled", async () => {
     await runTest({
       options: {
+        esmExports: false,
         disableLocalsExport: true,
       },
     });
@@ -200,6 +215,7 @@ describe("css-loader@6", () => {
 
   it("localsConvention asIs", async () => {
     await runTest({
+      options: { esmExports: false },
       cssLoaderOptions: {
         modules: {
           exportLocalsConvention: "asIs",
@@ -214,10 +230,23 @@ describe("css-loader@6", () => {
 
   it("localsConvention camelCase", async () => {
     await runTest({
+      options: { esmExports: false },
       cssLoaderOptions: {
         modules: {
           exportLocalsConvention: "camelCase",
         },
+      },
+    });
+
+    const persistMock = jest.requireMock("../src/persist");
+    expect(persistMock).toHaveBeenCalledTimes(1);
+    expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
+  });
+
+  it("with legacy cjs format", async () => {
+    await runTest({
+      options: {
+        esmExports: false,
       },
     });
 
@@ -265,6 +294,7 @@ describe("css-loader@6", () => {
   it("with locals export disabled", async () => {
     await runTest({
       options: {
+        esmExports: false,
         disableLocalsExport: true,
       },
     });

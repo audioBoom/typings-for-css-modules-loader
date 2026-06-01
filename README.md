@@ -45,6 +45,7 @@ module.exports = {
 |           **[`formatter`](#formatter)**           | `{String}`  |   Formats the generated `*.d.ts` file with specified formatter, eg. `prettier`   |
 |                 **[`eol`](#eol)**                 | `{String}`  |             Newline character to be used in generated `*.d.ts` files             |
 |          **[`verifyOnly`](#verifyOnly)**          | `{Boolean}` | Validate generated `*.d.ts` files and fail if an update is needed (useful in CI) |
+|          **[`esmExports`](#esmExports)**          | `{Boolean}` |              ESM exports, default true. Set false for CJS exports.               |
 | **[`disableLocalsExport`](#disableLocalsExport)** | `{Boolean}` |                        Disable the use of locals export.                         |
 |  **[`prettierConfigFile`](#prettierConfigFile)**  | `{String}`  |                           Path to prettier config file                           |
 
@@ -165,6 +166,7 @@ module.exports = {
 ### `disableLocalsExport`
 
 Disable the use of locals export. Defaults to `false`.
+Has no effect when esmExports is true (which it is by default) - with esmExports, local exports are always disabled.
 
 ```js
 module.exports = {
@@ -176,6 +178,7 @@ module.exports = {
           {
             loader: "@audioboom/typings-for-css-modules-loader",
             options: {
+              esmExports: false,
               disableLocalsExport: true,
             },
           },
@@ -237,20 +240,11 @@ Imagine you have a file `~/my-project/src/component/MyComponent/myComponent.scss
 Adding the `typings-for-css-modules-loader` will generate a file `~/my-project/src/component/MyComponent/myComponent.scss.d.ts` that has the following content:
 
 ```ts
-declare namespace MyComponentScssModule {
-  export interface IMyComponentScss {
-    "some-class": string;
-    someOtherClass: string;
-    "some-class-sayWhat": string;
-  }
-}
-
-declare const MyComponentScssModule: MyComponentScssModule.IMyComponentScss & {
-  /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: MyComponentScssModule.IMyComponentScss;
-};
-
-export = MyComponentScssModule;
+declare const CSS_some_class: string;
+export { CSS_some_class as "some-class" };
+export someOtherClass: string;
+declare const CSS_some_class: string;
+export { CSS_some_class_sayWhat as "some-class-sayWhat" };
 ```
 
 ```ts
@@ -343,7 +337,6 @@ where `css` is the file extension of your style files. If you use `sass` you nee
 As the webpack process is independent from your typescript "runtime" it may take a while for typescript to pick up the typings.
 
 It is possible to write a custom webpack plugin using the `fork-ts-checker-service-before-start` hook from https://github.com/TypeStrong/fork-ts-checker-webpack-plugin#plugin-hooks to delay the start of type checking until all the `*.d.ts` files are generated. Potentially, this plugin can be included in this repository.
-
 
 [npm]: https://img.shields.io/npm/v/@audioboom/typings-for-css-modules-loader.svg
 [npm-url]: https://npmjs.com/package/@audioboom/typings-for-css-modules-loader

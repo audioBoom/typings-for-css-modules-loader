@@ -3,6 +3,7 @@ const {
   filenameToPascalCase,
   filenameToTypingsFilename,
   getCssModuleKeys,
+  generateESMExports,
   generateGenericExportInterface,
 } = require("./utils");
 const persist = require("./persist");
@@ -29,6 +30,10 @@ const schema = {
     },
     disableLocalsExport: {
       description: "Disable the use of locals export. Defaults to `false`",
+      type: "boolean",
+    },
+    esmExports: {
+      description: "Generate ES module named exports. Defaults to `true`",
       type: "boolean",
     },
     verifyOnly: {
@@ -76,13 +81,16 @@ module.exports = function (content, ...args) {
   }
 
   const filename = this.resourcePath;
+  const esmExports = options.esmExports !== false;
 
   const cssModuleInterfaceFilename = filenameToTypingsFilename(filename);
-  const cssModuleDefinition = generateGenericExportInterface(
-    cssModuleKeys,
-    filenameToPascalCase(filename),
-    options.disableLocalsExport,
-  );
+  const cssModuleDefinition = esmExports
+    ? generateESMExports(cssModuleKeys)
+    : generateGenericExportInterface(
+        cssModuleKeys,
+        filenameToPascalCase(filename),
+        options.disableLocalsExport,
+      );
 
   applyFormattingAndOptions(cssModuleDefinition, options)
     .then((output) => {

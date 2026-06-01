@@ -82,6 +82,7 @@ const filenameToTypingsFilename = (filename) => {
 /**
  * @param {string[]} cssModuleKeys
  * @param {string} pascalCaseFileName
+ * @param {boolean} disableLocalsExport
  */
 const generateGenericExportInterface = (
   cssModuleKeys,
@@ -114,9 +115,27 @@ declare const ${moduleName}: ${namespaceName}.${interfaceName}${localsExportType
 export = ${moduleName};`;
 };
 
+/**
+ * @param {string[]} cssModuleKeys
+ */
+const generateESMExports = (cssModuleKeys) => {
+  return cssModuleKeys
+    .map((k) => {
+      if (k.match(/^[A-Za-z0-9_]+$/)) {
+        return `export const ${k}: string;`;
+      } else {
+        const name = "CSS_" + k.replace(/[^A-Za-z0-9_]/g, "_");
+        return `declare const ${name}: string;
+        export { ${name} as "${k}" };`;
+      }
+    })
+    .join("\n");
+};
+
 module.exports = {
   getCssModuleKeys,
   filenameToPascalCase,
   filenameToTypingsFilename,
+  generateESMExports,
   generateGenericExportInterface,
 };
