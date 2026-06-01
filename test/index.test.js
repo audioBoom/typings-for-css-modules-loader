@@ -16,11 +16,11 @@ describe("css-loader@latest", () => {
     await runTest();
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
 
     const verifyMock = jest.requireMock("../src/verify");
-    expect(verifyMock).toBeCalledTimes(0);
+    expect(verifyMock).toHaveBeenCalledTimes(0);
   });
 
   it("with sourcemap", async () => {
@@ -31,7 +31,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -44,7 +44,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
   });
 
   it("no modules", async () => {
@@ -55,7 +55,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
   });
 
   it("localsConvention asIs", async () => {
@@ -68,7 +68,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -82,7 +82,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -94,7 +94,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -106,7 +106,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -118,7 +118,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -130,7 +130,7 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -142,10 +142,10 @@ describe("css-loader@latest", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
 
     const verifyMock = jest.requireMock("../src/verify");
-    expect(verifyMock).toBeCalledTimes(1);
+    expect(verifyMock).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -156,11 +156,11 @@ describe("css-loader@6", () => {
     await runTest();
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
 
     const verifyMock = jest.requireMock("../src/verify");
-    expect(verifyMock).toBeCalledTimes(0);
+    expect(verifyMock).toHaveBeenCalledTimes(0);
   });
 
   it("with sourcemap", async () => {
@@ -171,7 +171,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -184,7 +184,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
   });
 
   it("no modules", async () => {
@@ -195,7 +195,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
   });
 
   it("localsConvention asIs", async () => {
@@ -208,7 +208,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -222,7 +222,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -234,7 +234,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -246,7 +246,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -258,7 +258,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -270,7 +270,7 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -282,10 +282,10 @@ describe("css-loader@6", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
 
     const verifyMock = jest.requireMock("../src/verify");
-    expect(verifyMock).toBeCalledTimes(1);
+    expect(verifyMock).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -296,11 +296,11 @@ describe("css-loader@3", () => {
     await runTest();
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
 
     const verifyMock = jest.requireMock("../src/verify");
-    expect(verifyMock).toBeCalledTimes(0);
+    expect(verifyMock).toHaveBeenCalledTimes(0);
   });
 
   it("with sourcemap", async () => {
@@ -311,7 +311,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -324,7 +324,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
   });
 
   it("no modules", async () => {
@@ -335,7 +335,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
   });
 
   it("localsConvention asIs", async () => {
@@ -346,7 +346,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -358,7 +358,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -370,7 +370,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -382,7 +382,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -394,7 +394,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -406,7 +406,7 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(1);
+    expect(persistMock).toHaveBeenCalledTimes(1);
     expect(persistMock.mock.calls[0][1]).toMatchSnapshot();
   });
 
@@ -418,10 +418,10 @@ describe("css-loader@3", () => {
     });
 
     const persistMock = jest.requireMock("../src/persist");
-    expect(persistMock).toBeCalledTimes(0);
+    expect(persistMock).toHaveBeenCalledTimes(0);
 
     const verifyMock = jest.requireMock("../src/verify");
-    expect(verifyMock).toBeCalledTimes(1);
+    expect(verifyMock).toHaveBeenCalledTimes(1);
   });
 });
 
